@@ -2,7 +2,7 @@
 to provide a multiprocessing solution for gzip compression/decompression.
 
 License: MIT LICENSE
-Copyright (c) 2019 Vincent Li with updates Michal Ricar
+Copyright (c) 2019 Vincent Li with updates 2023 Michal Ricar
 
 """
 
