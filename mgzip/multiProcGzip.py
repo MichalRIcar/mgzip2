@@ -14,7 +14,7 @@ import io
 from gzip import GzipFile, write32u, _GzipReader, _PaddedFile, READ, WRITE, FEXTRA, FNAME, FCOMMENT, FHCRC
 from multiprocessing.dummy import Pool
 
-__version__ = "0.2.4"
+__version__ = "0.2.6"
 
 SID = b'IG' # Subfield ID of indexed gzip file
 
@@ -452,7 +452,13 @@ class MultiGzipFile(GzipFile):
             if myfileobj:
                 self.myfileobj = None
                 myfileobj.close()
-
+                     
+            if self.mode == WRITE:
+                self.pool.close()
+                self.pool.join()
+            elif self.mode == READ:
+                self.raw.close()
+                     
     def flush(self):
         self._check_not_closed()
         if self.mode == WRITE:
