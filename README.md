@@ -1,5 +1,6 @@
 # mgzip2
 A multi-threading implement of Python gzip module. 
+
 mgzip2 is mgzip updated to be compatible with Python 3.10+ where mgzip fails. 
 
 Using a block indexed GZIP file format to enable compress and decompress in parallel. This implement use 'FEXTRA' to record the index of compressed member, which is defined in offical GZIP file format specification version 4.3, so it is fully compatible with normal GZIP implement.
